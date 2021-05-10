@@ -1,0 +1,13 @@
+<h1>Welcome back Bertrand Renard!</h1>
+
+<% @letters.each do |letter| %>
+  <%= letter.capitalize %>
+<% end %>
+<br>
+<%= "What is the longest word you can find?" %>
+<form action="/score" method="post">
+  <input type="text" name="word">
+  <input type="text" name="grid" hidden="true" value="<%= @letters.join()%>" >
+  <input type="submit">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
